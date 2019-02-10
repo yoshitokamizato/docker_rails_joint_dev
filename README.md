@@ -1,24 +1,30 @@
 # README
+cloneが終わったら、以下の手順でアプリを立ち上げてみてください。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+docker-compose build
+```
 
-Things you may want to cover:
+アプリとデータベースサーバの起動
 
-* Ruby version
+```
+docker-compose up -d
+```
 
-* System dependencies
+ターミナルで別のタブを開いて以下のコマンドを入力し、データベースを作成
 
-* Configuration
+```
+docker-compose run web rake db:create
+```
 
-* Database creation
+以下のURLにアクセスし、アプリが正常に起動できることを確認
 
-* Database initialization
+```
+http://localhost:3000
+```
 
-* How to run the test suite
+アプリの終了
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+docker-compose exec web down
+```
